@@ -8,7 +8,7 @@ const url = 'https://fakestoreapi.com/products';
         const modalPrice = document.getElementById("modal-price");
         const closeModal = document.querySelector(".close");
 
-        buton.addEventListener("click", async function () {
+        async function fetchData(){
             try {
                 const response = await fetch(url);
                 const data = await response.json();
@@ -51,7 +51,7 @@ const url = 'https://fakestoreapi.com/products';
             } catch (error) {
                 console.error("Fotoğraf alınırken hata oluştu:", error);
             }
-        });
+        };
 
         closeModal.addEventListener("click", function() {
             modal.style.display = "none";
@@ -62,3 +62,6 @@ const url = 'https://fakestoreapi.com/products';
                 modal.style.display = "none";
             }
         });
+
+
+        window.addEventListener("DOMContentLoaded", fetchData);
